@@ -62,87 +62,68 @@
 #
 # The following variables must be defined, either here or on the command line
 # (e.g., "make install DESTDIR=/usr/local"):
-#
-# Note that if you plan to build the Houdini OpenVDB tools (distributed
-# separately), you must build the OpenVDB library and the Houdini tools
-# against compatible versions of the Boost, OpenEXR and TBB libraries.
-# Fortunately, all three are included in the Houdini HDK, so the relevant
-# variables below point by default to the HDK library and header directories:
-# $(HDSO) and $(HT)/include, respectively.  (Source the houdini_setup script
-# to set those two environment variables.)
-#
-# To build the OpenVDB Python module, you will need local distributions of
-# Python, Boost.Python, and optionally NumPy.  As of Houdini 12.5, the HDK
-# includes versions 2.5 and 2.6 of Python as well as the Boost.Python headers.
-# Unfortunately, it does not include the libboost_python library, nor does it
-# include NumPy, so both Boost.Python and NumPy have to be built separately.
-# Point the variables $(BOOST_PYTHON_LIB_DIR), $(BOOST_PYTHON_LIB) and
-# $(NUMPY_INCL_DIR) below to your local distributions of those libraries.
-#
 
 # The directory into which to install libraries, executables and header files
-DESTDIR := /tmp/OpenVDB
+DESTDIR := /usr/local/
 
 # The parent directory of the boost/ header directory
-BOOST_INCL_DIR := $(HT)/include
+BOOST_INCL_DIR := /usr/include/boost/
 # The directory containing libboost_iostreams, libboost_system, etc.
-BOOST_LIB_DIR := $(HDSO)
+BOOST_LIB_DIR := /usr/lib/x86_64-linux-gnu/
 BOOST_LIB := -lboost_iostreams -lboost_system
 BOOST_THREAD_LIB := -lboost_thread
 
 # The parent directory of the OpenEXR/ header directory
-EXR_INCL_DIR := $(HT)/include
+EXR_INCL_DIR := /usr/include/OpenEXR
 # The directory containing IlmImf
-EXR_LIB_DIR := $(HDSO)
+EXR_LIB_DIR := /usr/lib/x86_64-linux-gnu/
 EXR_LIB := -lIlmImf
 
 # The parent directory of the OpenEXR/ header directory (which contains half.h)
-ILMBASE_INCL_DIR := $(EXR_INCL_DIR)
-# The directory containing libIlmThread, libIlmThread, libHalf etc.
-ILMBASE_LIB_DIR := $(EXR_LIB_DIR)
+ILMBASE_INCL_DIR := /usr/include/OpenEXR
+# The directory containing libIlmThread, libIex, libHalf etc.
+ILMBASE_LIB_DIR := /usr/lib/x86_64-linux-gnu/
 ILMBASE_LIB := -lIlmThread -lIex -lImath
 HALF_LIB := -lHalf
 
 # The parent directory of the tbb/ header directory
-TBB_INCL_DIR := $(HT)/include
+TBB_INCL_DIR := /usr/include/tbb
 # The directory containing libtbb
-TBB_LIB_DIR := $(HDSO)
+TBB_LIB_DIR := /usr/lib/
 TBB_LIB := -ltbb
 
 # The parent directory of the blosc.h header
 # (leave blank if Blosc is unavailable)
-BLOSC_INCL_DIR := $(HT)/include
+BLOSC_INCL_DIR := /usr/local/include
 # The directory containing libblosc
-BLOSC_LIB_DIR := $(HDSO)
+BLOSC_LIB_DIR := /usr/local/lib/
 BLOSC_LIB := -lblosc
 
 # A scalable, concurrent malloc replacement library
-# such as jemalloc (included in the Houdini HDK) or TBB malloc
 # (leave blank if unavailable)
-CONCURRENT_MALLOC_LIB := -ljemalloc
-#CONCURRENT_MALLOC_LIB := -ltbbmalloc_proxy -ltbbmalloc
+CONCURRENT_MALLOC_LIB := -ltbbmalloc_proxy -ltbbmalloc
 # The directory containing the malloc replacement library
-CONCURRENT_MALLOC_LIB_DIR := $(HDSO)
+CONCURRENT_MALLOC_LIB_DIR := /usr/lib/
 
 # The parent directory of the cppunit/ header directory
 # (leave blank if CppUnit is unavailable)
-CPPUNIT_INCL_DIR := /rel/map/generic-2013.22/sys_include
+CPPUNIT_INCL_DIR := /usr/include
 # The directory containing libcppunit
-CPPUNIT_LIB_DIR := /rel/depot/third_party_build/cppunit/1.10.2-7/opt-ws5-x86_64-gccWS5_64/lib
+CPPUNIT_LIB_DIR := /usr/lib/x86_64-linux-gnu/
 CPPUNIT_LIB := -lcppunit
 
 # The parent directory of the log4cplus/ header directory
 # (leave blank if log4cplus is unavailable)
-LOG4CPLUS_INCL_DIR := /rel/folio/log4cplus/log4cplus-1.0.3-latest/sys_include
+LOG4CPLUS_INCL_DIR := /usr/include/
 # The directory containing liblog4cplus
-LOG4CPLUS_LIB_DIR := /rel/folio/log4cplus/log4cplus-1.0.3-latest/library
+LOG4CPLUS_LIB_DIR := /usr/lib/
 LOG4CPLUS_LIB := -llog4cplus
 
 # The directory containing glfw.h
 # (leave blank if GLFW is unavailable)
-GLFW_INCL_DIR := /rel/third_party/glfw/glfw-3.0.1/include
+GLFW_INCL_DIR := /usr/include/
 # The directory containing libglfw
-GLFW_LIB_DIR := /rel/third_party/glfw/glfw-3.0.1/lib
+GLFW_LIB_DIR := /usr/lib/
 GLFW_LIB := -lglfw
 # The major version number of the GLFW library
 # (header filenames changed between GLFW 2 and 3, so this must be specified explicitly)
@@ -150,23 +131,23 @@ GLFW_MAJOR_VERSION := 3
 
 # The version of Python for which to build the OpenVDB module
 # (leave blank if Python is unavailable)
-PYTHON_VERSION := 2.6
+PYTHON_VERSION := 2.7
 # The directory containing Python.h
-PYTHON_INCL_DIR := $(HFS)/python/include/python$(PYTHON_VERSION)
+PYTHON_INCL_DIR := /usr/include/python2.7/
 # The directory containing pyconfig.h
-PYCONFIG_INCL_DIR := $(PYTHON_INCL_DIR)
+PYCONFIG_INCL_DIR := /usr/include/python2.7/
 # The directory containing libpython
-PYTHON_LIB_DIR := $(HFS)/python/lib
+PYTHON_LIB_DIR := /usr/lib/x86_64-linux-gnu/
 PYTHON_LIB := -lpython$(PYTHON_VERSION)
 # The directory containing libboost_python
-BOOST_PYTHON_LIB_DIR := /rel/depot/third_party_build/boost/rhel6-1.46.1-0/lib
-BOOST_PYTHON_LIB := -lboost_python-gcc41-mt-python26-1_46_1
+BOOST_PYTHON_LIB_DIR := /usr/lib/x86_64-linux-gnu/
+BOOST_PYTHON_LIB := -lboost_python-py27
 # The directory containing arrayobject.h
 # (leave blank if NumPy is unavailable)
-NUMPY_INCL_DIR := /rel/map/generic-2013.22/include
+NUMPY_INCL_DIR := /usr/include/python2.7/numpy/
 # The Epydoc executable
 # (leave blank if Epydoc is unavailable)
-EPYDOC := epydoc
+EPYDOC :=
 # Set PYTHON_WRAP_ALL_GRID_TYPES to "yes" to specify that the Python module
 # should expose (almost) all of the grid types defined in openvdb.h
 # Otherwise, only FloatGrid, BoolGrid and Vec3SGrid will be exposed
