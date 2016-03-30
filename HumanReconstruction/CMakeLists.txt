@@ -8,7 +8,7 @@ add_library(libopenvdb IMPORTED SHARED GLOBAL)
 set_target_properties(libopenvdb PROPERTIES
     "IMPORTED_LOCATION" "${CMAKE_CURRENT_SOURCE_DIR}/../openvdb/libopenvdb.so.3.1.0"
 )
-include_directories(SYSTEM "${CMAKE_CURRENT_SOURCE_DIR}/../openvdb/")
+include_directories(SYSTEM "${CMAKE_CURRENT_SOURCE_DIR}/../")
 target_link_libraries(HumanReconstruction libopenvdb)
 
 
