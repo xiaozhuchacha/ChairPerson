@@ -14,7 +14,7 @@ all copies or substantial portions of the Software.
 If the code is used in an article, the following publication shall be cited:
 @InProceedings{CVPR16_Chair,
 author = {Yixin Zhu, Chenfanfu Jiang, Yibiao Zhao, Demetri Terzopoulos and Song-Chun Zhu},
-title = {ChairPerson: Inferring Forces and Learning Human Utilities From Videos},
+title = {Inferring Forces and Learning Human Utilities From Videos},
 booktitle = {IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
 year = {2016}
 }
