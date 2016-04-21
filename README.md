@@ -3,6 +3,9 @@
 
 See [Wiki](https://github.com/xiaozhuchacha/ChairPerson/wiki/Home/) for instructions
 
+Project website: http://www.stat.ucla.edu/~yixinzhu/projects/cvpr16_chair/
+
+Bibtex:
 ```bash
 @InProceedings{cvpr2016chair,
     author = {Zhu, Yixin and Jiang, Chenfanfu and Zhao, Yibiao and Terzopoulos, Demetri and Zhu, Song-Chun},
