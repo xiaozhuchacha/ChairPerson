@@ -3,7 +3,7 @@
 
 See [Wiki](https://github.com/xiaozhuchacha/ChairPerson/wiki/Home/) for instructions
 
-Project website: http://www.stat.ucla.edu/~yixinzhu/projects/cvpr16_chair/
+Project website: http://xiaozhuchacha.github.io/projects/cvpr16_chair/
 
 Bibtex:
 ```bash
